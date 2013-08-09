@@ -1,5 +1,5 @@
 # Web Experience Toolkit (WET)
-# Test comment by Enrique Ruiz
+* Test comment by Enrique Ruiz
 
 [![Build Status](https://secure.travis-ci.org/wet-boew/wet-boew.png?branch=master)](http://travis-ci.org/wet-boew/wet-boew)
 
