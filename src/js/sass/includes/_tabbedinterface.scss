@@ -1,6 +1,6 @@
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
 /* Gradient (avoid encoding duplication) */
@@ -350,7 +350,7 @@
 	.tabs {
 		border: none;
 		background: #eee;
-		@include opacity(0.95);
+		opacity: 0.95;
 		min-height: 24px;
 		position: absolute;
 		width: 100%;

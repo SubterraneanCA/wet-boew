@@ -1,6 +1,6 @@
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 @import "list";
 @include lists;
@@ -43,6 +43,22 @@
 
 .margin-top-xlarge {
 	margin-top: 57px !important;
+}
+
+.line-height-xsmall	 {
+	line-height: 0.8 !important;
+}
+.line-height-small		{
+	line-height: 1.0 !important;
+}
+.line-height-medium	 {
+	line-height: 1.25 !important;
+}
+.line-height-large		{
+	line-height: 1.5 !important;
+}
+.line-height-xlarge	 {
+	line-height: 2.0 !important;
 }
 
 .font-xsmall {

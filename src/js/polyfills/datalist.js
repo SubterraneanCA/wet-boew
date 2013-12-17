@@ -1,7 +1,7 @@
 /*!
  *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
  * Version: @wet-boew-build.version@
  *
@@ -10,7 +10,7 @@
  * Datalist polyfill (Autocomplete for text input fields)
  * @author: Paul Jackson (TBS)
  */
-/*global jQuery: false, pe: false*/
+/*global pe:false*/
 (function ($) {
 	"use strict";
 	$.fn.datalist = function () {
@@ -80,10 +80,10 @@
 				var $this = $(this),
 					value = $this.attr('value'),
 					label = $this.attr('label');
-				if (value === 'undefined') {
+				if (typeof value === 'undefined') {
 					value = $this.text();
 				}	
-				datalist_items.push('<li class="al-option" id="al-option-' + index + '-' + index2 + '"><a href="javascript:;"><span class="al-value">' + (value !== 'undefined' ? value : "") + '</span><span class="al-label">' + (label !== 'undefined' ? label : "") + '</span></a></li>');
+				datalist_items.push('<li class="al-option" id="al-option-' + index + '-' + index2 + '"><a href="javascript:;"><span class="al-value">' + (typeof value !== 'undefined' ? value : '') + '</span><span class="al-label">' + (typeof label !== 'undefined' && value !== label ? label : '') + '</span></a></li>');
 			});
 
 			elm.attr({'autocomplete': 'off', 'role': 'textbox', 'aria-haspopup': 'true', 'aria-autocomplete': 'list', 'aria-owns': 'wb-autolist-' + index, 'aria-activedescendent': ''}).wrap('<div class="wb-al-container" role="application" aria-' + (label.length !== 0 ? 'labelledby="' + uniqueid : '-label="' + elm.attr('title')) + '"/>');
@@ -95,22 +95,23 @@
 			elm.on('keyup keydown click vclick touchstart focus', function (e) {
 				var type = e.type,
 					button = e.button,
-					keycode = e.keyCode,
+					keyCode = e.keyCode,
 					dest;
 				if (type === 'keyup') {
 					if (!(e.ctrlKey || e.altKey || e.metaKey)) {
-						if ((keycode > 47 && keycode < 58) || (keycode > 64 && keycode < 91) || keycode === 32 || keycode === 8) { // Number keys, letter keys, spacebar or backspace
+						// 0 - 9, a - z keys, punctuation, symbols, spacebar and backspace
+						if ((keyCode > 47 && keyCode < 91) || (keyCode > 95 && keyCode < 112) || (keyCode > 185 && keyCode < 223) || keyCode === 32 || keyCode === 8) {
 							showOptions(elm.val());
 						}
 					}
 				} else if (type === 'keydown') {
 					if (!(e.ctrlKey || e.metaKey)) {
 						if (!e.altKey && !autolist.hasClass('al-hide')) {
-							if (keycode === 27) { // escape key
+							if (keyCode === 27) { // escape key
 								closeOptions();
 								return false;
-							} else if ((keycode === 38 || keycode === 40) && elm.attr('aria-activedescendent') === "") { // up or down arrow (aria-activedescendent check for IE7)
-								if (keycode === 38) { // up arrow
+							} else if ((keyCode === 38 || keyCode === 40) && elm.attr('aria-activedescendent') === '') { // up or down arrow (aria-activedescendent check for IE7)
+								if (keyCode === 38) { // up arrow
 									dest = autolist.find('a').last();
 								} else { // down arrow
 									dest = autolist.find('a').eq(0);
@@ -119,11 +120,9 @@
 								pe.focus(dest);
 								return false;
 							}
-						} else {
-							if (keycode === 38 || keycode === 40) { // up or down arrow (with or without alt)
-								showOptions('');
-								return false;
-							}
+						} else if (keyCode === 38 || keyCode === 40) { // up or down arrow (with or without alt)
+							showOptions('');
+							return false;
 						}
 					}
 				} else if (type === 'click' || type === 'vclick') {
@@ -140,7 +139,7 @@
 
 			autolist.on('keyup keydown click vclick touchstart', 'a, span', function (e) {
 				var type = e.type,
-					keycode = e.keyCode,
+					keyCode = e.keyCode,
 					button = e.button,
 					target = $(e.target),
 					visible_options,
@@ -150,11 +149,12 @@
 					value;
 				if (type === 'keyup') {
 					if (!(e.ctrlKey || e.altKey || e.metaKey)) {
-						if ((keycode > 47 && keycode < 58) || (keycode > 64 && keycode < 91) || keycode === 32) { // Number keys, letter keys or spacebar
-							elm.val(val + String.fromCharCode(keycode));
+						// 0 - 9, a - z keys, punctuation, symbols and spacebar
+						if ((keyCode > 47 && keyCode < 91) || (keyCode > 95 && keyCode < 112) || (keyCode > 185 && keyCode < 223) || keyCode === 32) {
+							elm.val(val + String.fromCharCode(keyCode));
 							pe.focus(elm);
 							showOptions(elm.val());
-						} else if (keycode === 8) { // Backspace
+						} else if (keyCode === 8) { // Backspace
 							if (elm.val().length > 0) {
 								elm.val(val.substring(0, val.length - 1));
 								showOptions(elm.val());
@@ -164,7 +164,7 @@
 					}
 				} else if (type === 'keydown') {
 					if (!(e.ctrlKey || e.altKey || e.metaKey)) {
-						if (keycode === 13) { // enter key
+						if (keyCode === 13) { // enter key
 							value = target.find('span.al-value').html();
 							if (value.length === 0) {
 								value = target.find('span.al-label').html();
@@ -173,15 +173,15 @@
 							pe.focus(elm);
 							closeOptions();
 							return false;
-						} else if (keycode === 9 || keycode === 27) { // escape key
+						} else if (keyCode === 9 || keyCode === 27) { // escape key
 							pe.focus(elm);
 							closeOptions();
 							return false;
-						} else if (keycode === 38 || keycode === 40) { // up or down arrow 
+						} else if (keyCode === 38 || keyCode === 40) { // up or down arrow 
 							visible_options = autolist.find('a');
 							if (visible_options.length !== 0) {
 								index = visible_options.index(target);
-								if (keycode === 38) { // up arrow
+								if (keyCode === 38) { // up arrow
 									dest = ((index - 1) === -1 ? visible_options.last() : visible_options.eq(index - 1));
 								} else { // down arrow
 									dest = ((index + 1) === visible_options.length ? visible_options.eq(0) : visible_options.eq(index + 1));

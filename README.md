@@ -11,17 +11,18 @@
  * [Multilingual](#multilingual)
 * [Flexible and themeable templates and reusable components](#themeable-and-reusable)
 * Open source software
- * Free to use for commercial and non-commercial purposes (MIT license - [Terms and conditions](http://wet-boew.github.io/wet-boew/License-eng.html))
+ * Free to use for commercial and non-commercial purposes (MIT license - [Terms and conditions](http://wet-boew.github.io/wet-boew/License-en.html))
  * [Developed openly by the community on GitHub](#collaborative-approach)
 
 ## Key resources
  
 * [Benefits](#benefits)
-* [Working examples](http://wet-boew.github.io/wet-boew/demos/index-eng.html)
+* [Working examples](http://wet-boew.github.io/wet-boew/demos/index-en.html)
+* [Working examples - v4.0](http://wet-boew.github.io/v4.0-ci/demos/index-en.html)
 * [Documentation](https://github.com/wet-boew/wet-boew/wiki#wiki-Documentation)
 * [Downloads](https://github.com/wet-boew/wet-boew/wiki/Downloads)
 * [Main project](https://github.com/wet-boew/wet-boew/)
-* [Terms and conditions](http://wet-boew.github.io/wet-boew/License-eng.html)
+* [Terms and conditions](http://wet-boew.github.io/wet-boew/License-en.html)
 * [Contributor guidelines](https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines)
 * [Versioning](https://github.com/wet-boew/wet-boew/wiki/Versioning)
 * [Version history](#version-history)
@@ -117,9 +118,16 @@
 
 ## Version history
 
+### v4.0
+* [v4.0 changelog](https://github.com/wet-boew/wet-boew/wiki/v4.0-changelog)
+* **WET v4.0.0 Beta 1 was released on December 16, 2013** ([v4.0.0 Beta 1 release notes](https://github.com/wet-boew/wet-boew/wiki/v4.0.0-Beta-1-release-notes))
+
 ### v3.1
 
 * [v3.1 changelog](https://github.com/wet-boew/wet-boew/wiki/v3.1-changelog)
+* **WET v3.1.6 was released on November 1, 2013** ([v3.1.6 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.1.6-release-notes))
+* **WET v3.1.5 was released on October 27, 2013** ([v3.1.5 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.1.5-release-notes))
+* **WET v3.1.4 was released on September 17, 2013** ([v3.1.4 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.1.4-release-notes))
 * **WET v3.1.3 was released on August 6, 2013** ([v3.1.3 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.1.3-release-notes))
 * **WET v3.1.2 was released on June 27, 2013** ([v3.1.2 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.1.2-release-notes))
 * **WET v3.1.1 was released on May 16, 2013** ([v3.1.1 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.1.1-release-notes))
@@ -131,7 +139,9 @@
 ### v3.0
 
 * [v3.0 changelog](https://github.com/wet-boew/wet-boew/wiki/v3.0-changelog)
-* **WET v3.0.8 was released on August 6, 2013** ([v3.0.9 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.9-release-notes))
+* **WET v3.0.11 was released on October 27, 2013** ([v3.0.11 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.11-release-notes))
+* **WET v3.0.10 was released on September 17, 2013** ([v3.0.10 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.10-release-notes))
+* **WET v3.0.9 was released on August 6, 2013** ([v3.0.9 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.9-release-notes))
 * **WET v3.0.8 was released on June 27, 2013** ([v3.0.8 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.8-release-notes))
 * **WET v3.0.7 was released on May 16, 2013** ([v3.0.7 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.7-release-notes))
 * **WET v3.0.6 was released on April 11, 2013** ([v3.0.6 release notes](https://github.com/wet-boew/wet-boew/wiki/v3.0.6-release-notes))
@@ -155,17 +165,18 @@
  * [Multilingues](#multilingue)
 * [Des modèles, ainsi que des composants réutilisables, qui sont flexibles et personnalisables](#personnalisable-et-rutilisable)
 * Un logiciel libre
- * Libre d'utilisation à des fins commerciales et non commerciales (licence MIT - [Conditions régissant l'utilisation](http://wet-boew.github.io/wet-boew/License-fra.txt))
+ * Libre d'utilisation à des fins commerciales et non commerciales (licence MIT - [Conditions régissant l'utilisation](http://wet-boew.github.io/wet-boew/Licence-fr.txt))
  * [Développé ouvertement sur GitHub par la communauté](#approche-collaborative)
 
 ## Ressources clés
  
 * [Avantages](#avantages)
-* [Exemples pratiques](http://wet-boew.github.io/wet-boew/demos/index-fra.html)
+* [Exemples pratiques](http://wet-boew.github.io/wet-boew/demos/index-fr.html)
+* [Exemples pratiques - v4.0](http://wet-boew.github.io/v4.0-ci/demos/index-fr.html)
 * [Documentation](https://github.com/wet-boew/wet-boew/wiki/Accueil#wiki-Documentation)
 * [Téléchargements](https://github.com/wet-boew/wet-boew/wiki/T%C3%A9l%C3%A9chargements)
 * [Projet principal](https://github.com/wet-boew/wet-boew/)
-* [Conditions régissant l'utilisation](http://wet-boew.github.io/wet-boew/Licence-fra.html)
+* [Conditions régissant l'utilisation](http://wet-boew.github.io/wet-boew/Licence-fr.html)
 * [Lignes directrices pour les contributeurs](https://github.com/wet-boew/wet-boew/wiki/Lignes-directrices-pour-les-contributeurs)
 * [Contrôle des versions](https://github.com/wet-boew/wet-boew/wiki/Contr%C3%B4le-des-versions)
 * [Historique des versions](#historique-des-versions)
@@ -261,9 +272,16 @@
 
 ## Historique des versions
 
+### Version 4.0
+* [ChangeLog de la version 4.0](https://github.com/wet-boew/wet-boew/wiki/v4.0-changelog)
+* **La version 4.0.0 Bêta 1 de la BOEW a été lancée le 16 décembre 2013** ([v4.0.0 Bêta 1 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v4.0.0-Beta-1-release-notes))
+
 ### Version 3.1
 
 * [ChangeLog de la version 3.1](https://github.com/wet-boew/wet-boew/wiki/v3.1-changelog)
+* **La version 3.1.6 de la BOEW a été lancée le 1 novembre 2013** ([v3.1.6 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.1.6-release-notes))
+* **La version 3.1.5 de la BOEW a été lancée le 27 octobre 2013** ([v3.1.5 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.1.5-release-notes))
+* **La version 3.1.4 de la BOEW a été lancée le 17 septembre 2013** ([v3.1.4 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.1.4-release-notes))
 * **La version 3.1.3 de la BOEW a été lancée le 6 août 2013** ([v3.1.3 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.1.3-release-notes))
 * **La version 3.1.2 de la BOEW a été lancée le 27 juin 2013** ([v3.1.2 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.1.2-release-notes))
 * **La version 3.1.1 de la BOEW a été lancée le 16 mai 2013** ([v3.1.1 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.1.1-release-notes))
@@ -274,6 +292,8 @@
 
 ### Version 3.0
 * [ChangeLog de la version 3.0](https://github.com/wet-boew/wet-boew/wiki/v3.0-changelog)
+* **La version 3.0.11 de la BOEW a été lancée le 27 octobre 2013** ([v3.0.11 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.0.11-release-notes))
+* **La version 3.0.10 de la BOEW a été lancée le 17 septembre 2013** ([v3.0.10 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.0.10-release-notes))
 * **La version 3.0.9 de la BOEW a été lancée le 6 août 2013** ([v3.0.9 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.0.9-release-notes))
 * **La version 3.0.8 de la BOEW a été lancée le 27 juin 2013** ([v3.0.8 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.0.8-release-notes))
 * **La version 3.0.7 de la BOEW a été lancée le 16 mai 2013** ([v3.0.7 - notes d'utilisation](https://github.com/wet-boew/wet-boew/wiki/v3.0.7-release-notes))

@@ -1,7 +1,7 @@
 /*!
  *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
  * Version: @wet-boew-build.version@
  *
@@ -9,8 +9,8 @@
 /*
 ----- @%lang-eng@ dictionary (il8n) ---
  */
-/*global jQuery: false */
-(function ($) {
+
+(function () {
 	"use strict";
 	var _pe = window.pe || {
 		fn: {}
@@ -43,6 +43,9 @@
 		'%error': '@%error@',
 		'%colon': '@%colon@',
 		'%hyphen': '@%hyphen@',
+		'%full-stop': '@%full-stop@',
+		'%list-comma-space': '@%list-comma-space@',
+		'%interword-space': '@%interword-space@',
 		'%start': '@%start@',
 		'%stop': '@%stop@',
 		'%back': '@%back@',
@@ -62,9 +65,12 @@
 		'%yesterday': '@%yesterday@',
 
 		'%next': '@%next@',
+		'%next-right': '@%next-right@',
 		'%previous': '@%previous@',
+		'%previous-left': '@%previous-left@',
 		'%first': '@%first@',
 		'%last': '@%last@',
+		'%close-esc': '@%close-esc@',
 
 		/* Archived Web page template */
 		'%archived-page': '@%archived-page@',
@@ -145,8 +151,6 @@
 		'%table-contents': '@%table-contents@',
 		/* Lightbox */
 		'%lb-current': '@%lb-current@',
-		'%lb-next': '@%lb-next@',
-		'%lb-prev': '@%lb-prev@',
 		'%lb-xhr-error': '@%lb-xhr-error@',
 		'%lb-img-error': '@%lb-img-error@',
 		'%lb-slideshow': '@%lb-slideshow@',
@@ -205,4 +209,4 @@
 	_pe.document.trigger('languageloaded');
 	window.pe = _pe;
 	return _pe;
-}(jQuery));
+}());

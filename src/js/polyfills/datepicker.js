@@ -1,7 +1,7 @@
 /*!
  *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
  * Version: @wet-boew-build.version@
  *
@@ -9,7 +9,7 @@
 /*
  * Datepicker
  */
-/*global jQuery: false, pe: false, XRegExp: false*/
+/*global pe: false, XRegExp: false*/
 (function ($) {
 	"use strict";
 	var container;
@@ -45,7 +45,13 @@
 			elm.addClass('picker-field');
 
 			createToggleIcon = function (fieldid) {
-				var fieldLabel = $('label[for="' + fieldid + '"]').text(),
+				var fieldLabel = $( "label" )
+						.filter( "[for='" + fieldid + "']" )
+						  .clone()
+						  .find( ".datepicker-format" )
+							.remove()
+							.end()
+						  .text(),
 					objToggle = $('<a id="' + fieldid + '-picker-toggle" class="picker-toggle-hidden wb-invisible" href="javascript:;"><img class="image-actual" src="' + pe.add.liblocation + 'images/datepicker/calendar-month.png" alt="' + datepickerShow + interwordSpace + fieldLabel + '"/></a>');
 
 				objToggle.on('click vclick touchstart', function (e) {
@@ -66,7 +72,7 @@
 			};
 
 			addLinksToCalendar = function (fieldid, year, month, days, minDate, maxDate, format) {
-				var field = $('#' + fieldid),
+				var field = $('#' + pe.string.jqescape(fieldid)),
 					lLimit,
 					hLimit;
 
@@ -157,10 +163,12 @@
 						});
 
 						link.on('click vclick touchstart', {fieldid: fieldid, year: year, month : month, day: index + 1, days: days, format: format}, function (event) {
-							var button = event.button;
+							var $field, prevDate,
+								button = event.button;
+
 							if (typeof button === 'undefined' || button === pe.leftMouseButton) { // Ignore middle/right mouse buttons
-								var $field = $('#' + event.data.fieldid),
-									prevDate = $field.val();
+								$field = $('#' + event.data.fieldid);
+								prevDate = $field.val();
 
 								addSelectedDateToField(event.data.fieldid, event.data.year, event.data.month + 1, event.data.day, event.data.format);
 								if (prevDate !== $field.val()) {
@@ -208,7 +216,7 @@
 				pattern = '^' + format + '$';
 
 				//Get the date from the field
-				date = $('#' + fieldid).val();
+				date = $('#' + pe.string.jqescape(fieldid)).val();
 				regex = new XRegExp(pattern, 'x');
 
 				try {
@@ -225,13 +233,14 @@
 			};
 
 			addSelectedDateToField = function (fieldid, year, month, day, format) {
-				container.parent().find('#' + fieldid).val(formatDate(year, month, day, format));
+				container.parent().find('#' + pe.string.jqescape(fieldid)).val(formatDate(year, month, day, format));
 			};
 
 			toggle = function (fieldid) {
-				var field = $('#' + fieldid),
+				var escFieldID = pe.string.jqescape(fieldid),
+					field = $('#' + escFieldID),
 					wrapper = field.parent(),
-					toggle = wrapper.find('#' + fieldid + '-picker-toggle'),
+					toggle = wrapper.find('#' + escFieldID + '-picker-toggle'),
 					targetDate = pe.date.from_iso_format(field.val());
 
 				toggle.toggleClass('picker-toggle-hidden picker-toggle-visible');
@@ -285,9 +294,9 @@
 						}
 					}
 				} else {
-					hide($('#' + fieldid));
+					hide($('#' + escFieldID));
 
-					pe.focus(wrapper.find('#' + fieldid));
+					pe.focus(wrapper.find('#' + escFieldID));
 				}
 			};
 
@@ -300,10 +309,12 @@
 			};
 
 			hide = function (pickerField) {
-				var fieldid, toggle, fieldLabel;
+				var fieldid,
+					toggle,
+					fieldLabel;
 
 				fieldid = pickerField.attr('id');
-				toggle = $('#' + fieldid + '-picker-toggle');
+				toggle = $('#' + pe.string.jqescape(fieldid) + '-picker-toggle');
 				fieldLabel = $('label[for="' + fieldid + '"]').text();
 
 				//Disable the tabbing of all the links when calendar is hidden
@@ -383,7 +394,7 @@
 					var button = e.button;
 					if (typeof button === 'undefined' || button === pe.leftMouseButton) { // Ignore middle/right mouse buttons
 						if (container.attr('aria-hidden') === 'false') {
-							hide(container.parent().find('#' + container.attr('aria-controls')));
+							hide(container.parent().find('#' + pe.string.jqescape(container.attr('aria-controls'))));
 							return false;
 						}
 					}
@@ -399,7 +410,7 @@
 					});
 
 				// Disable the tabbing of all the links when calendar is hidden
-				container.find('a').attr('tabindex', '-1');	
+				container.find('a').attr('tabindex', '-1');
 
 				pe.bodydiv.after(container);
 			}

@@ -1,6 +1,6 @@
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 @import "compass/css3/inline-block";
 @import "compass/utilities/sprites";
@@ -34,19 +34,43 @@ $wb-icon-inline: not $legacy-support-for-ie8;
 	}
 	padding-left: 19px;
 }
-@each $downloadable-file-type in psd, zip, egret, doc, pdf, xls, rtf, pot, ppt, pps, pptm, docx, xlsx, pptx, pub {
+
+$downloadable-file-type-list: (psd, zip, egret, doc, pdf, xls, rtf, pot, ppt, pps, pptm, docx, xlsx, pptx, pub);
+
+@each $downloadable-file-type in $downloadable-file-type-list {
 	[href$='.#{$downloadable-file-type}'] {
 		@extend %grids-icon-download-icon;
 	}
 }
 
+%grid-icon-external-button-background {
+	background-image: inherit;
+}
+
 // Adds icon to all external links that are outside the header or footer
 [rel="external"] {
 	background: url(../images/wb-icon/external.png) 100% 0 no-repeat;
-
+	&[href^='mailto:'] {
+		&:not(.wb-icon-none) {
+			@extend %grids-icon-external-mailto;
+			&.button {
+				@extend %grid-icon-external-button-background;
+			}
+		}
+	}
+	@each $downloadable-file-type in $downloadable-file-type-list {
+		&[href$='.#{$downloadable-file-type}'] {
+			&:not(.wb-icon-none) {
+				@extend %grids-icon-external-download;
+				&.button {
+					@extend %grid-icon-external-button-background;
+				}
+			}
+		}
+	}
 	//gh-2104 fixes overriding background because of increased specificity when wb-main was used
-	#wb-head &, #wb-foot & {
-		background: inherit;
+	#wb-head &, #wb-sec &, #wb-foot & {
+		background: none;
 	}
 
 	#wb-main &, #colorbox & {
@@ -55,6 +79,23 @@ $wb-icon-inline: not $legacy-support-for-ie8;
 		&.wb-icon-none {
 			padding-right: 0;
 		}
+	}
+}
+
+%grids-icon-external-mailto {
+	background-image: url(../images/wb-icon/mail.png), url(../images/wb-icon/external.png);
+	@extend %grids-icon-external-combo;
+}
+
+%grids-icon-external-download {
+	background-image: url(../images/wb-icon/drive-download.png), url(../images/wb-icon/external.png);
+	@extend %grids-icon-external-combo;
+}
+
+%grids-icon-external-combo {
+	background: {
+		repeat: no-repeat;
+		position: 0 100%, 100% 0;
 	}
 }
 

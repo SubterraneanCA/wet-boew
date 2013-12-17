@@ -1,6 +1,6 @@
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 /*
  * Slideout
@@ -19,7 +19,8 @@
 			var borderWidth = 10,
 				tocText = _pe.dic.get('%table-contents'),
 				hideText = _pe.dic.get('%hide'),
-				closeLink = hideText + '<span class="wb-invisible">' + tocText + '</span>',
+				space = _pe.dic.get('%interword-space'),
+				closeLink = hideText + '<span class="wb-invisible">' + space + tocText + '</span>',
 				focusOutlineAllowance = 2,
 				opened = false,
 				reposition,
@@ -37,7 +38,9 @@
 				ie7 = _pe.preIE7,
 				$wbcorein = $('#wb-core-in'),
 				defaultOpen = false,
-				tab;
+				tab,
+				rightOrLeft = _pe.rtl ? 'left' : 'right',
+				styles;
 
 			defaultOpen = elm.hasClass('wb-slideout-open');
 			opts = {
@@ -75,21 +78,24 @@
 				if (!opened) { // Only when slideout is closed
 					var newPosition = $wbcorein.offset().left;
 
-					if (newPosition <= borderWidth) {
+					if (newPosition <= borderWidth || (navigator.userAgent.match(/WebKit/i) && _pe.rtl)) {
 						newPosition = 0;
 					}
 
 					// Vertical
 					wrapper.css('top', $wbcorein.offset().top);
 					// Horizontal
-					wrapper.css('right', newPosition);
+					wrapper.css(rightOrLeft, newPosition);
 				}
 			};
 
 			toggle = function (e) {
 				var position = wrapper.offset(),
 					tabWidth,
-					button = e.button;
+					button = e.button,
+					styles = {top: position.top - $wbcorein.offset().top};
+
+				styles[rightOrLeft] = borderWidth - 10;
 
 				if (typeof button === 'undefined' || button === _pe.leftMouseButton) { // Ignore middle/right mouse buttons
 					toggleLink.off('click vclick touchstart', toggle);
@@ -103,10 +109,7 @@
 						if (_pe.ie <= 0 || document.documentMode !== undefined) { // IE8 compat. and up
 							wrapper.removeClass('slideoutWrapper')
 								.addClass('slideoutWrapperRel')
-								.css({
-									top: position.top - $wbcorein.offset().top,
-									right: borderWidth - 10
-								});
+								.css(styles);
 						}
 						// Give the tab time to move out of view to prevent overlap
 						setTimeout(function () {
@@ -168,6 +171,7 @@
 			// Handles specialized keyboard input
 			keyhandler = function (e) {
 				var target = $(e.target),
+					keyCode = e.keyCode,
 					menuitem = target.is('[role="menuitem"]'),
 					tocLink,
 					keychar,
@@ -245,10 +249,10 @@
 						}
 						return false;
 					default:
-						// 0 - 9 and a - z keys
-						if ((e.keyCode > 47 && e.keyCode < 58) || (e.keyCode > 64 && e.keyCode < 91)) {
-							keychar = String.fromCharCode(e.keyCode).toLowerCase();
-							elmtext = $(e.target).text();
+						// 0 - 9, a - z keys, punctuation and symbols
+						if ((keyCode > 47 && keyCode < 91) || (keyCode > 95 && keyCode < 112) || (keyCode > 185 && keyCode < 223)) {
+							keychar = String.fromCharCode(keyCode).toLowerCase();
+							elmtext = target.text();
 							matches = elm.find('a').filter(function () {
 								return ($(this).text().substring(0, 1).toLowerCase() === keychar || $(this).text() === elmtext);
 							});
@@ -299,7 +303,7 @@
 			slideoutClose = elm.find('#slideoutClose');
 
 			// Add the slideout toggle
-			innerWrapper.css('padding', (focusOutlineAllowance / 2) + 'px').prepend('<div id="slideoutToggle" class="slideoutToggle"><a id="toggleLink" role="button" aria-controls="slideout-body" aria-label="' + opts.txtShow + '" href="#" onclick="return false;">' + opts.txtShow + '</a></div>');
+			innerWrapper.css('padding', (focusOutlineAllowance / 2) + 'px').prepend('<div id="slideoutToggle" class="slideoutToggle"><a id="toggleLink" role="button" aria-controls="slideout-body" href="#" onclick="return false;">' + opts.txtShow + '</a></div>');
 			tab = innerWrapper.find('#slideoutToggle');
 			toggleLink = innerWrapper.find('#toggleLink');
 
@@ -322,10 +326,9 @@
 				reposition();
 			} else {
 				wrapper.addClass('so-ie7');
-				wrapper.addClass('slideoutWrapperRel').css({
-					right: borderWidth - 10,
-					top: 0
-				});
+				styles = {top: 0};
+				styles[rightOrLeft] = borderWidth - 10;
+				wrapper.addClass('slideoutWrapperRel').css(styles);
 			}
 
 			// Toggle slideout
@@ -350,7 +353,7 @@
 
 			if (_pe.ie === '8.0') {
 				$('#slideoutToggle').css({
-					left: '-' + $('#slideoutToggle').outerWidth() + 'px',
+					left: (_pe.rtl ?  '' : '-') + $('#slideoutToggle').outerWidth() + 'px',
 					top: $('#slideoutToggle').outerWidth() + 'px'
 				});
 				wrapper.width(focusOutlineAllowance);
@@ -374,4 +377,3 @@
 	return _pe;
 }
 (jQuery));
-

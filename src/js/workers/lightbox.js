@@ -1,11 +1,11 @@
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 /*
  * Lightbox plugin
  */
-/*global jQuery: false, wet_boew_lightbox: false*/
+/*global wet_boew_lightbox: false*/
 (function ($) {
 	"use strict";
 	var _pe = window.pe || {
@@ -44,9 +44,9 @@
 				transition : 'elastic',
 				loop : true,
 				current : _pe.dic.get('%lb-current'),
-				previous : _pe.dic.get('%lb-prev'),
-				next : _pe.dic.get('%lb-next'),
-				close : _pe.dic.get('%close'),
+				previous : _pe.dic.get('%previous-left'),
+				next : _pe.dic.get('%next-right'),
+				close : _pe.dic.get('%close-esc'),
 				xhrError : _pe.dic.get('%lb-xhr-error'),
 				imgError : _pe.dic.get('%lb-img-error'),
 				maxWidth : '100%',
@@ -174,16 +174,19 @@
 				data = _pe.data.getData($link, 'wet-boew-lightbox'),
 				inline = {inline: isInline, rel: groupRel};
 
-			$link.colorbox($.extend(opts,
-				(isInline || isGroup || dataTitle) ?
-					(dataTitle && dataTitle.innerHTML.length > 0) ?
+			opts = $.extend(opts,
+				(isInline || isGroup || dataTitle ?
+					(dataTitle && dataTitle.innerHTML.length > 0 ?
 						$.extend({title: dataTitle.innerHTML}, inline):
-						inline :
+						inline
+					) :
 					{}
-				), (data !== null) ?
-					{data: data.postData}:
-					{}
-			);
+				), (data !== null ?
+						{data: data.postData}:
+						{}
+					)
+				);
+			$link.colorbox(opts);
 		}
 	};
 	window.pe = _pe;
