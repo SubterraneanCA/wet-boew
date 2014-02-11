@@ -11,7 +11,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <title>Saisie automatique - Exemples pratiques - Boîte à outils de l'expérience Web&#160;(BOEW)</title>
 
 <link rel="shortcut icon" href="../../dist/theme-wet-boew/images/favicon.ico" />
-<meta name="description" content="French description / Description en français" />
+<meta name="description" content="Émule l'attribut list de l'élément &lt;input&gt;, ainsi que l'élément &lt;datalist&gt;, pour les navigateurs qui ne les supportent pas." />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!--[if lte IE 8]>
@@ -58,9 +58,9 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <div id="wet-title"><p id="wet-title-in"><a href="../../index-fr.html" lang="fr"><object data="../../dist/theme-wet-boew/images/logo.svg" role="img" tabindex="-1" type="image/svg+xml"><img src="../../dist/theme-wet-boew/images/logo.png" alt="" /></object> <span>Boîte à outils de l'expérience Web&#160;(BOEW) <small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span></a></p></div>
 
 <section role="search"><div id="wet-srchbx"><h2>Recherche</h2>
-<form action="#" method="post"><div id="wet-srchbx-in">
-<label for="wet-srch">Recherchez le site Web</label><input id="wet-srch" name="wet-srch" type="search" value="" size="27" maxlength="150" />
-<input id="wet-srch-submit" name="wet-srch-submit" type="submit" value="Recherche" data-icon="search" class="button button-accent" />
+<form action="https://google.ca/search" method="get"><div id="wet-srchbx-in">
+<label for="wet-srch">Recherchez le site Web</label><input id="wet-srch" name="q" type="search" value="" size="27" maxlength="150" /><input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+<input id="wet-srch-submit" type="submit" value="Recherche" data-icon="search" class="button button-accent" />
 </div></form>
 </div></section>
 </div></div>
@@ -69,8 +69,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <div id="wet-psnb"><h2>Menu du site</h2><div id="wet-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
 <ul class="mb-menu" data-ajax-replace="../includes/projectmenu-fr.txt">
 <li><div><a href="http://wet-boew.github.io/wet-boew/index-fr.html">Projet de la BOEW</a></div></li>
-<li><div><a href="https://github.com/wet-boew/wet-boew/wiki/Mise-en-%C5%93uvre-de-la-BOEW">Mise en œuvre de la BOEW</a></div></li>
-<li><div><a href="https://github.com/wet-boew/wet-boew/wiki/Lignes-directrices-pour-les-contributeurs">Contribuer à la BOEW</a></div></li>
+<li><div><a href="http://wet-boew.github.io/wet-boew/docs/gs-cd/impl-fr.html">Mise en œuvre de la BOEW</a></div></li>
+<li><div><a href="http://wet-boew.github.io/wet-boew/docs/gs-cd/contrib-fr.html">Contribuer à la BOEW</a></div></li>
 </ul>
 </div></div></div></div>
 
@@ -91,7 +91,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <h1 id="wb-cont">Saisie automatique</h1>
 
 <ul class="button-group">
-<li><a href="https://github.com/wet-boew/wet-boew/wiki/Saisie-automatique" class="button">Documentation</a></li>
+<li><a href="../../docs/ref/datalist/datalist-fr.html" class="button">Documentation</a></li>
 <li><a href="https://github.com/wet-boew/wet-boew/issues/new" class="button">Questions ou commentaires?</a></li>
 </ul>
 
@@ -119,7 +119,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 				<option label="Iqualuit" value="Iqualuit"></option>
 				<option label="Ottawa" value="Ottawa"></option>
 				<option label="Miramichi" value="Miramichi"></option>
-				<option label="Montreal" value="Montreal"></option>
+				<option label="Montréal" value="Montréal"></option>
 				<option label="Red Deer" value="Red Deer"></option>
 				<option label="St. John" value="St. John"></option>
 				<option label="St. John's" value="St. John's"></option>
@@ -153,7 +153,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
    &lt;option label="Iqualuit" value="Iqualuit"&gt;&lt;/option&gt;
    &lt;option label="Ottawa" value="Ottawa"&gt;&lt;/option&gt;
    &lt;option label="Miramichi" value="Miramichi"&gt;&lt;/option&gt;
-   &lt;option label="Montreal" value="Montreal"&gt;&lt;/option&gt;
+   &lt;option label="Montréal" value="Montréal"&gt;&lt;/option&gt;
    &lt;option label="Red Deer" value="Red Deer"&gt;&lt;/option&gt;
    &lt;option label="St. John" value="St. John"&gt;&lt;/option&gt;
    &lt;option label="St. John's" value="St. John's"&gt;&lt;/option&gt;
