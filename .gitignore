@@ -18,10 +18,7 @@ Thumbs.db
 /.project
 jshint.out.xml
 csslint.out.xml
-?sprite*.*css
-sprite*.png
 *.orig
 *.tmp
 *.log
 node_modules/
-lib/
